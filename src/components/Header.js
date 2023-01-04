@@ -30,30 +30,30 @@ const Header = () => {
         history("/dash")
     }
 
-    const logoutuser = async () => {
-        let token = localStorage.getItem("usersdatatoken");
-        const res = await fetch("https://password-reset-5onz.onrender.com/logout", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": token,
-                Accept: "application/json"
-            },
-            credentials: "include"
-        });
+    // const logoutuser = async () => {
+    //     let token = localStorage.getItem("usersdatatoken");
+    //     const res = await fetch("https://password-reset-5onz.onrender.com/logout", {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": token,
+    //             Accept: "application/json"
+    //         },
+    //         credentials: "include"
+    //     });
 
-        const data = await res.json();
-        console.log(data);
+    //     const data = await res.json();
+    //     console.log(data);
 
-        if (data.status === 201) {
-            console.log("user logout");
-            localStorage.removeItem("usersdatatoken");
-            setLoginData(false)
-            history("/")
-        } else {
-            console.log("error");
-        }
-    }
+    //     if (data.status === 201) {
+    //         console.log("user logout");
+    //         localStorage.removeItem("usersdatatoken");
+    //         setLoginData(false)
+    //         history("/")
+    //     } else {
+    //         console.log("error");
+    //     }
+    // }
 
     return (
         <>
@@ -84,10 +84,10 @@ const Header = () => {
                                         handleClose()
                                     }
                                     }>Profile</MenuItem>
-                                    <MenuItem onClick={() => {
+                                    {/* <MenuItem onClick={() => {
                                         logoutuser()
                                         handleClose()
-                                    }}>Logout</MenuItem>
+                                    }}>Logout</MenuItem> */}
                                 </>
                             ) :
                                 (
